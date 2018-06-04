@@ -4,7 +4,7 @@ import debruijn as db
 # create de bruijn generator object, seed it with polynomials:
 #   x + 1, x^3 + x + 1, x^4 + x^3 + x^2 + x + 1.
 # reducible polynomials will be ignored.
-db_object = db.DeBruijnPoly('1011011')
+db_object = db.DeBruijnPoly('11', '1011', '11111')
 
 # .polys property provides read-only access to the polynomials it was seeded with.
 print 'created object, seeded with polynomials:'
@@ -46,22 +46,22 @@ print 'degree of ANF: {}'.format(db_object.anf_degree)
 
 # .bits() method exposes a generator mechanism that outputs bits of the sequence one-by-one
 # print 'first 10 bits of sequence:'
-# ctr = 10
-# for bit in db_object.bits():
-#     print bit,
-#     ctr -= 1
-#     if ctr == 0:
-#         break
-# print
+ctr = 10
+for bit in db_object.bits():
+    print bit,
+    ctr -= 1
+    if ctr == 0:
+        break
+print
 
 # fast-forward and exhaust the sequence
-# for bit in db_object.bits():
-#     pass
+for bit in db_object.bits():
+    pass
 
 # once sequence is exhausted, object must be signalled to move on to the next de bruijn sequence
 # by using .refresh_bits() method. this method passes -1 once all sequences are exhausted.
 print 'object is ready to generate sequence(s): {}'.format(db_object.ready)
-# print '.refresh_bits() returns: {}'.format(db_object.refresh_bits())
+print '.refresh_bits() returns: {}'.format(db_object.refresh_bits())
 
 # .sequences() method exposes a generator mechanism that wraps around the .bits() generator
 # and automates the .refresh_bits() process
