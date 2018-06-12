@@ -8,7 +8,7 @@ This is a basic software implementation that generate binary de Bruijn sequences
 ### Technical reference
 This is a basic implementation of the procedures proposed in the preprint
 
-> Z. Chang, M. F. Ezerman, S. Ling, and H. Wang, “On binary de Bruijn sequences from LFSRs with arbitrary characteristic polynomials.” Available at (https://arxiv.org/pdf/1611.10088v2).
+> Z. Chang, M. F. Ezerman, S. Ling, and H. Wang, “On binary de Bruijn sequences from LFSRs with arbitrary characteristic polynomials.” Available at (https://arxiv.org/pdf/1611.10088).
 
 We retain the definitions and notations in the paper and recommend, upon usage, that users cite it and provide a link to the
 source code.
