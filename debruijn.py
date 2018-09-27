@@ -214,7 +214,7 @@ def span_tree_gen(mat, verts_in, edgelist=None, cur_vert=0):
 # END SECTION LIFTED FROM ZECH.PY #
 
 
-class DeBruijnPoly:
+class DeBruijnPoly(object):
     def __init__(self, *args):
         """ takes binary strings which are converted into polys """
         if not args:
