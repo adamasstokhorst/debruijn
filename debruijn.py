@@ -37,7 +37,7 @@ def is_primitive(poly):
     return True
 
 
-def generate_primitives(degree):
+def generate_primitives(degree, just_one=False):
     if degree == 1:
         return [sympy.Poly(x+1, x, modulus=2)]
 
@@ -57,6 +57,9 @@ def generate_primitives(degree):
             poly = sympy.Poly(proto_poly, x, modulus=2)
             if is_primitive(poly):
                 break
+
+    if just_one:
+        return [poly]
 
     decimations = []
     for k in range(1, 2**(degree-1)):
@@ -462,8 +465,8 @@ class DeBruijnPoly(object):
                                            for i in range(len(self._polys))]
                             param_1 = tuple([a[0] for a in pairs] + eff_shift_1)
                             param_2 = tuple([a[1] for a in pairs] + eff_shift_2)
-                            yield param_1, param_2,\
-                                  [shifts[i][0] for i in range(len(self._polys))],\
+                            yield param_1, param_2, \
+                                  [shifts[i][0] for i in range(len(self._polys))], \
                                   [shifts[i][1] for i in range(len(self._polys))]
                             break
                     if found:
